@@ -1,6 +1,6 @@
 package com.example.android.publicapiapp.model
 
-class BreakingBadCharacter : ArrayList<BreakingBadCharacterItem>()
+class BreakingBadCharacters : ArrayList<BreakingBadCharacterItem>()
 
 data class BreakingBadCharacterItem(
     val appearance: List<Int>,
