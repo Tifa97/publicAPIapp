@@ -5,7 +5,7 @@ import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
-import com.example.android.publicapiapp.model.BreakingBadCharacter
+import com.example.android.publicapiapp.model.BreakingBadCharacters
 import com.example.android.publicapiapp.repo.BreakingBadRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
