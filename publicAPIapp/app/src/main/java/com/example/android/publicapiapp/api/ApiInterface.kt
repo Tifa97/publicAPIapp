@@ -1,5 +1,6 @@
 package com.example.android.publicapiapp.api
 
+import com.example.android.publicapiapp.BuildConfig
 import com.example.android.publicapiapp.model.BreakingBadCharacterItem
 import com.example.android.publicapiapp.model.BreakingBadCharacters
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
@@ -12,20 +13,5 @@ import java.sql.Array
 
 interface ApiInterface {
     @GET("/api/characters")
-    fun getCharacters() : List<BreakingBadCharacterItem>
-
-    companion object{
-        var BASE_URL = "https://www.breakingbadapi.com"
-
-        fun create() : ApiInterface {
-
-            val retrofit = Retrofit.Builder()
-                .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl(BASE_URL)
-                .addCallAdapterFactory(CoroutineCallAdapterFactory())
-                .build()
-
-            return retrofit.create(ApiInterface::class.java)
-        }
-    }
+    fun getCharacters() : Call<BreakingBadCharacters>
 }

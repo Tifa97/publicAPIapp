@@ -4,8 +4,8 @@ class BreakingBadCharacters : ArrayList<BreakingBadCharacterItem>()
 
 data class BreakingBadCharacterItem(
     val appearance: List<Int>,
-    val better_call_saul_appearance: List<Any>,
-    val birthday: String,
+    val better_call_saul_appearance: Any,
+    val birthday: Any,
     val category: String,
     val char_id: Int,
     val img: String,

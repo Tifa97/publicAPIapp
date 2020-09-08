@@ -33,22 +33,12 @@ class ExampleViewModel(private val breakingBadRepository: BreakingBadRepository)
 
     private fun loadCharacters() {
         scope.launch {
-            _characters.value = getCharacters()
-        }
-    }
-
-    private suspend fun getCharacters(): List<BreakingBadCharacterItem>? {
-        return withContext(Dispatchers.IO){
-            breakingBadRepository.getCharacters()
-        }
-    }
-
-    /*private fun loadCharacters() {
-        scope.launch {
-            val response: Response<List<BreakingBadCharacterItem>> = breakingBadRepository.getCharacters()
+            val response: Response<BreakingBadCharacters> = getResponse()
             val isResponseSuccessful = response.isSuccessful
             if (isResponseSuccessful){
-                _characters.value = response.body()
+                withContext(Dispatchers.Main){
+                    _characters.value = response.body()
+                }
             }
             else{
                 Log.i("Response", "failed")
@@ -56,11 +46,11 @@ class ExampleViewModel(private val breakingBadRepository: BreakingBadRepository)
         }
     }
 
-    private suspend fun getResponse(): Response<List<BreakingBadCharacterItem>> {
+    private suspend fun getResponse(): Response<BreakingBadCharacters> {
         return withContext(Dispatchers.IO){
-            breakingBadRepository.getCharacters()
+            breakingBadRepository.getCharacters().execute()
         }
-    }*/
+    }
 
 
     override fun onCleared() {
