@@ -52,7 +52,6 @@ class ExampleViewModel(private val breakingBadRepository: BreakingBadRepository)
         }
     }
 
-
     override fun onCleared() {
         super.onCleared()
         job.cancel()

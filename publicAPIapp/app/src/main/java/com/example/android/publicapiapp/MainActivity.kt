@@ -2,6 +2,7 @@ package com.example.android.publicapiapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.android.publicapiapp.adapter.CharactersAdapter
@@ -10,6 +11,7 @@ import com.example.android.publicapiapp.model.BreakingBadCharacterItem
 import com.example.android.publicapiapp.model.BreakingBadCharacters
 import com.example.android.publicapiapp.module.BreakingBadModule
 import com.example.android.publicapiapp.viewModel.ExampleViewModel
+import kotlinx.android.synthetic.main.list_item_character.view.*
 import org.koin.android.ext.android.bind
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -31,6 +33,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun observeCharacters() {
         viewModel.characters.observe(this, Observer {
+            for (c in it) {
+                Log.i("Character: ", c.char_id.toString())
+            }
             setupRecycler(it)
         } )
     }

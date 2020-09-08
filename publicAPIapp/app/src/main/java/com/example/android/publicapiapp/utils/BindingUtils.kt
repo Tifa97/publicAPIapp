@@ -12,17 +12,3 @@ fun TextView.setName(character: BreakingBadCharacterItem){
         text = character.name
     }
 }
-
-@BindingAdapter("nicknameString")
-fun TextView.setNickname(character: BreakingBadCharacterItem){
-    character?.let {
-        text = character.nickname
-    }
-}
-
-@BindingAdapter("portrayedString")
-fun TextView.setPortrayed(character: BreakingBadCharacterItem){
-    character?.let {
-        text = character.portrayed
-    }
-}
