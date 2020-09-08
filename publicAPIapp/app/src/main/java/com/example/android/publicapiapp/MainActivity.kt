@@ -3,6 +3,7 @@ package com.example.android.publicapiapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.databinding.adapters.ViewGroupBindingAdapter.setListener
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.android.publicapiapp.adapter.CharactersAdapter
@@ -29,7 +30,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        setListener()
         observeCharacters()
+    }
+
+    private fun setListener() {
+        binding.btnAdd.setOnClickListener{
+            viewModel.loadCharacter()
+        }
     }
 
     private fun observeCharacters() {

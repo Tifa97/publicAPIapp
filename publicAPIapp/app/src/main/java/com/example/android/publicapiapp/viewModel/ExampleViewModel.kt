@@ -25,22 +25,21 @@ class ExampleViewModel(private val breakingBadRepository: BreakingBadRepository)
     private val job: Job = Job()
     val scope: CoroutineScope = CoroutineScope((ViewModelDispatcher.dispatcher + job))
 
-    private val _characters = MutableLiveData<List<BreakingBadCharacterItem>>()
-     val characters: LiveData<List<BreakingBadCharacterItem>>
+    private val _characters = MutableLiveData<ArrayList<BreakingBadCharacterItem>>()
+     val characters: LiveData<ArrayList<BreakingBadCharacterItem>>
          get() = _characters
 
+    var characterList: ArrayList<BreakingBadCharacterItem> = ArrayList()
 
-     init {
-         loadCharacters()
-     }
 
-     private fun loadCharacters() {
+    fun loadCharacter() {
          scope.launch {
              val response: Response<BreakingBadCharacters> = getResponse()
              val isResponseSuccessful = response.isSuccessful
              if (isResponseSuccessful){
+                 characterList.add(response.body()!![0])
                  withContext(Dispatchers.Main){
-                     _characters.value = response.body()
+                     _characters.value = characterList
                  }
              }
              else{

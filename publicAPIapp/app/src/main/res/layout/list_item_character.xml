@@ -11,7 +11,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/defaultMargin"
         android:layout_marginStart="@dimen/defaultMargin"
         android:layout_marginEnd="@dimen/defaultMargin">
@@ -26,6 +26,25 @@
             app:nameString="@{character}"
             />
 
+        <TextView
+            android:id="@+id/nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/defaultPadding"
+            android:paddingEnd="@dimen/defaultPadding"
+            android:text="@string/name_surname"
+            android:textSize="@dimen/textSize"
+            app:nicknameString="@{character}"
+            />
+
+        <TextView
+            android:id="@+id/portrayed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/name_surname"
+            android:textSize="@dimen/textSize"
+            app:portrayedString="@{character}"
+            />
 
     </LinearLayout>
 
