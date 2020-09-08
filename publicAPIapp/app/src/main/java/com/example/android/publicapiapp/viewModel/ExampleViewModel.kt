@@ -29,7 +29,6 @@ class ExampleViewModel(private val breakingBadRepository: BreakingBadRepository)
      val characters: LiveData<List<BreakingBadCharacterItem>>
          get() = _characters
 
-     var characterList: ArrayList<BreakingBadCharacterItem> = ArrayList()
 
      init {
          loadCharacters()
@@ -52,7 +51,7 @@ class ExampleViewModel(private val breakingBadRepository: BreakingBadRepository)
 
      private suspend fun getResponse(): Response<BreakingBadCharacters> {
          return withContext(Dispatchers.IO){
-             breakingBadRepository.getCharacters().execute()
+             breakingBadRepository.getCharacter().execute()
          }
      }
 

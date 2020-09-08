@@ -12,6 +12,6 @@ import retrofit2.http.GET
 import java.sql.Array
 
 interface ApiInterface {
-    @GET("/api/characters")
-    fun getCharacters() : Call<BreakingBadCharacters>
+    @GET("/api/character/random")
+    fun getCharacter() : Call<BreakingBadCharacters>
 }
