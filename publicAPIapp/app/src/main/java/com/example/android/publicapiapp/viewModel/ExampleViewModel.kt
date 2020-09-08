@@ -3,14 +3,15 @@ package com.example.android.publicapiapp.viewModel
 import android.util.Log
 import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
+import com.example.android.publicapiapp.api.ApiInterface
+import com.example.android.publicapiapp.model.BreakingBadCharacterItem
 import com.example.android.publicapiapp.model.BreakingBadCharacters
 import com.example.android.publicapiapp.repo.BreakingBadRepository
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
+import kotlinx.coroutines.*
+import retrofit2.Response
 
 object ViewModelDispatcher{
     @VisibleForTesting
@@ -22,9 +23,45 @@ class ExampleViewModel(private val breakingBadRepository: BreakingBadRepository)
     private val job: Job = Job()
     val scope: CoroutineScope = CoroutineScope((ViewModelDispatcher.dispatcher + job))
 
-    val characters: LiveData<List<BreakingBadCharacters>> = liveData {
-        emit(breakingBadRepository.getCharacters())
+   private val _characters = MutableLiveData<List<BreakingBadCharacterItem>>()
+    val characters: LiveData<List<BreakingBadCharacterItem>>
+        get() = _characters
+
+    init {
+        loadCharacters()
     }
+
+    private fun loadCharacters() {
+        scope.launch {
+            _characters.value = getCharacters()
+        }
+    }
+
+    private suspend fun getCharacters(): List<BreakingBadCharacterItem>? {
+        return withContext(Dispatchers.IO){
+            breakingBadRepository.getCharacters()
+        }
+    }
+
+    /*private fun loadCharacters() {
+        scope.launch {
+            val response: Response<List<BreakingBadCharacterItem>> = breakingBadRepository.getCharacters()
+            val isResponseSuccessful = response.isSuccessful
+            if (isResponseSuccessful){
+                _characters.value = response.body()
+            }
+            else{
+                Log.i("Response", "failed")
+            }
+        }
+    }
+
+    private suspend fun getResponse(): Response<List<BreakingBadCharacterItem>> {
+        return withContext(Dispatchers.IO){
+            breakingBadRepository.getCharacters()
+        }
+    }*/
+
 
     override fun onCleared() {
         super.onCleared()

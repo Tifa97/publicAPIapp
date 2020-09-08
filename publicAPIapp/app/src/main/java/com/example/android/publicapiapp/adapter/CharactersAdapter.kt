@@ -10,6 +10,7 @@ import com.example.android.publicapiapp.databinding.ListItemCharacterBinding
 import com.example.android.publicapiapp.model.BreakingBadCharacterItem
 
 class CharactersAdapter : ListAdapter<BreakingBadCharacterItem, CharactersAdapter.ViewHolder>(CharacterDiffCallBack()) {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder.from(parent)
     }
