@@ -10,7 +10,9 @@ import com.example.android.publicapiapp.api.ApiInterface
 import com.example.android.publicapiapp.model.BreakingBadCharacterItem
 import com.example.android.publicapiapp.model.BreakingBadCharacters
 import com.example.android.publicapiapp.repo.BreakingBadRepository
+import kotlinx.android.synthetic.main.list_item_character.view.*
 import kotlinx.coroutines.*
+import retrofit2.Call
 import retrofit2.Response
 
 object ViewModelDispatcher{
@@ -23,34 +25,36 @@ class ExampleViewModel(private val breakingBadRepository: BreakingBadRepository)
     private val job: Job = Job()
     val scope: CoroutineScope = CoroutineScope((ViewModelDispatcher.dispatcher + job))
 
-   private val _characters = MutableLiveData<List<BreakingBadCharacterItem>>()
-    val characters: LiveData<List<BreakingBadCharacterItem>>
-        get() = _characters
+    private val _characters = MutableLiveData<List<BreakingBadCharacterItem>>()
+     val characters: LiveData<List<BreakingBadCharacterItem>>
+         get() = _characters
 
-    init {
-        loadCharacters()
-    }
+     var characterList: ArrayList<BreakingBadCharacterItem> = ArrayList()
 
-    private fun loadCharacters() {
-        scope.launch {
-            val response: Response<BreakingBadCharacters> = getResponse()
-            val isResponseSuccessful = response.isSuccessful
-            if (isResponseSuccessful){
-                withContext(Dispatchers.Main){
-                    _characters.value = response.body()
-                }
-            }
-            else{
-                Log.i("Response", "failed")
-            }
-        }
-    }
+     init {
+         loadCharacters()
+     }
 
-    private suspend fun getResponse(): Response<BreakingBadCharacters> {
-        return withContext(Dispatchers.IO){
-            breakingBadRepository.getCharacters().execute()
-        }
-    }
+     private fun loadCharacters() {
+         scope.launch {
+             val response: Response<BreakingBadCharacters> = getResponse()
+             val isResponseSuccessful = response.isSuccessful
+             if (isResponseSuccessful){
+                 withContext(Dispatchers.Main){
+                     _characters.value = response.body()
+                 }
+             }
+             else{
+                 Log.i("Response", "failed")
+             }
+         }
+     }
+
+     private suspend fun getResponse(): Response<BreakingBadCharacters> {
+         return withContext(Dispatchers.IO){
+             breakingBadRepository.getCharacters().execute()
+         }
+     }
 
     override fun onCleared() {
         super.onCleared()

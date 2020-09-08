@@ -18,6 +18,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 import org.koin.core.context.startKoin
 import java.util.*
+import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
 
@@ -34,7 +35,7 @@ class MainActivity : AppCompatActivity() {
     private fun observeCharacters() {
         viewModel.characters.observe(this, Observer {
             for (c in it) {
-                Log.i("Character: ", c.char_id.toString())
+                Log.i("Character: ", c.name)
             }
             setupRecycler(it)
         } )
