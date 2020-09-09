@@ -6,9 +6,9 @@ import com.google.gson.annotations.SerializedName
 
 data class BreakingBadResponse(
     @SerializedName("characters")
-    val characters: List<Character?>?
+    val characters: List<BreakingBadCharacter?>?
 ){
-    data class Character(
+    data class BreakingBadCharacter(
         @SerializedName("appearance")
         val appearance: List<Int>?,
         @SerializedName("better_call_saul_appearance")
