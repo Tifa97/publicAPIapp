@@ -7,9 +7,9 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 
-//Korisno imati BaseViewModel kad imas vise ViewModela koji koriste iste stvari
+// Korisno imati BaseViewModel kad imas vise ViewModela koji koriste iste stvari
 
-object ViewModelDispatcher{
+object ViewModelDispatcher {
     @VisibleForTesting
     var dispatcher: CoroutineDispatcher = Dispatchers.IO
 }
@@ -18,7 +18,6 @@ abstract class BaseViewModel : ViewModel() {
 
     private val job: Job = Job()
     val scope: CoroutineScope = CoroutineScope((ViewModelDispatcher.dispatcher + job))
-
 
     override fun onCleared() {
         super.onCleared()

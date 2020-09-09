@@ -1,7 +1,5 @@
 package com.example.android.publicapiapp.module
 
-import com.example.android.publicapiapp.api.APIClient
-import com.example.android.publicapiapp.api.ApiInterface
 import com.example.android.publicapiapp.repo.BreakingBadRepository
 import com.example.android.publicapiapp.viewModel.ExampleViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel

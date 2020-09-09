@@ -1,32 +1,28 @@
 package com.example.android.publicapiapp.api
 
 import com.example.android.publicapiapp.BuildConfig
-import okhttp3.Cache
+import java.util.concurrent.TimeUnit
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.io.File
-import java.sql.Time
-import java.util.concurrent.TimeUnit
 
-//potrebno uvijek kad se koristi retrofit
+// potrebno uvijek kad se koristi retrofit
 
-object APIClient{
-    private fun provideHttpClient(): OkHttpClient{
+object APIClient {
+    private fun provideHttpClient(): OkHttpClient {
         val interceptor = HttpLoggingInterceptor()
 
-        if (BuildConfig.DEBUG){
+        if (BuildConfig.DEBUG) {
             interceptor.level = HttpLoggingInterceptor.Level.BODY
-        }
-        else{
+        } else {
             interceptor.level = HttpLoggingInterceptor.Level.NONE
         }
 
         return OkHttpClient.Builder()
             .connectTimeout(60, TimeUnit.SECONDS)
             .readTimeout(60, TimeUnit.SECONDS)
-            .addInterceptor{chain ->  
+            .addInterceptor { chain ->
                 val original = chain.request()
                 val requestBuilder = original.newBuilder()
                     .addHeader("Content-Type", "application/json")
@@ -38,7 +34,7 @@ object APIClient{
             .build()
     }
 
-    fun authServices(): ApiInterface{
+    fun authServices(): ApiInterface {
         return Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())

@@ -1,7 +1,7 @@
 package com.example.android.publicapiapp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.android.publicapiapp.adapter.CharactersAdapter
@@ -24,16 +24,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setListener() {
-        binding.btnAdd.setOnClickListener{
+        binding.btnAdd.setOnClickListener {
             viewModel.loadCharacter()
         }
     }
 
     private fun observeCharacters() {
-        //uvijek radi ovako (npr. list ->)
-        viewModel.characters.observe(this, Observer {list ->
+        // uvijek radi ovako (npr. list ->)
+        viewModel.characters.observe(this, Observer { list ->
             setupRecycler(list)
-        } )
+        })
     }
 
     private fun setupRecycler(it: List<CharacterObject>?) {
