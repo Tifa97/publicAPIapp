@@ -20,6 +20,7 @@ class CharactersAdapter : ListAdapter<CharacterObject, CharactersAdapter.ViewHol
 
 
     class ViewHolder private constructor(val binding: ListItemCharacterBinding) : RecyclerView.ViewHolder(binding.root){
+        //ne koristi BindingUtilse
         fun bind(item: CharacterObject){
             binding.txtName.text = item.name
             binding.txtNickname.text = item.nickname

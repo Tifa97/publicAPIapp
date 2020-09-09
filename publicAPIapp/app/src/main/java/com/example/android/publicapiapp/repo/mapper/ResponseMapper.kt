@@ -7,7 +7,7 @@ class ResponseMapper {
     fun getCharacters(characters: BreakingBadResponse): MutableList<CharacterObject> {
         val list = mutableListOf<CharacterObject>()
         characters.forEach {
-            it?.let {
+            it.let {
                 list.add(
                     CharacterObject(
                         appearance = it.appearance,

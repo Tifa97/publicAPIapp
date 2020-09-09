@@ -1,5 +1,7 @@
 package com.example.android.publicapiapp.model
 
+//Objekt u koji pretvaramo response
+
 data class CharacterObject(
     val appearance: List<Any>,
     val better_call_saul_appearance: Any?,
