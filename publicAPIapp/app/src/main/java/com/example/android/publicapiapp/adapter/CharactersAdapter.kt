@@ -8,7 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.android.publicapiapp.databinding.ListItemCharacterBinding
 import com.example.android.publicapiapp.model.CharacterObject
 
-class CharactersAdapter : ListAdapter<CharacterObject, CharactersAdapter.ViewHolder>(CharacterDiffCallBack()) {
+class CharactersAdapter :
+    ListAdapter<CharacterObject, CharactersAdapter.ViewHolder>(CharacterDiffCallBack()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder.from(parent)
@@ -18,7 +19,8 @@ class CharactersAdapter : ListAdapter<CharacterObject, CharactersAdapter.ViewHol
         holder.bind(getItem(position!!))
     }
 
-    class ViewHolder private constructor(val binding: ListItemCharacterBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder private constructor(val binding: ListItemCharacterBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         // ne koristi BindingUtilse
         fun bind(item: CharacterObject) {
             binding.txtName.text = item.name

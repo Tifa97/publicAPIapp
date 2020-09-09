@@ -9,14 +9,14 @@ import kotlinx.coroutines.*
 class ExampleViewModel(private val breakingBadRepository: BreakingBadRepository) : BaseViewModel() {
 
     private val _characters = MutableLiveData<List<CharacterObject>>()
-     val characters: LiveData<List<CharacterObject>>
-         get() = _characters
+    val characters: LiveData<List<CharacterObject>>
+        get() = _characters
 
     fun loadCharacter() {
-         scope.launch {
-             withContext(Dispatchers.Main) {
-                 _characters.value = breakingBadRepository.getCharacters()
-             }
-         }
-     }
+        scope.launch {
+            withContext(Dispatchers.Main) {
+                _characters.value = breakingBadRepository.getCharacters()
+            }
+        }
+    }
 }
