@@ -21,7 +21,9 @@ class CharactersAdapter : ListAdapter<CharacterObject, CharactersAdapter.ViewHol
 
     class ViewHolder private constructor(val binding: ListItemCharacterBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(item: CharacterObject){
-            binding.character = item
+            binding.txtName.text = item.name
+            binding.txtNickname.text = item.nickname
+            binding.txtPortrayed.text = item.portrayed
             binding.executePendingBindings()
         }
 

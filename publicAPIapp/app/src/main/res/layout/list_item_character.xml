@@ -4,13 +4,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-
-        <variable
-            name="character"
-            type="com.example.android.publicapiapp.model.CharacterObject" />
-    </data>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,7 +18,7 @@
             android:layout_height="wrap_content"
             android:text="@string/name_surname"
             android:textSize="@dimen/textSize"
-            app:nameString="@{character}" />
+            />
 
         <TextView
             android:id="@+id/txtNickname"
@@ -35,7 +28,7 @@
             android:paddingEnd="@dimen/defaultPadding"
             android:text="@string/nickname"
             android:textSize="@dimen/textSize"
-            app:nicknameString="@{character}" />
+            />
 
         <TextView
             android:id="@+id/txtPortrayed"
@@ -43,7 +36,7 @@
             android:layout_height="wrap_content"
             android:text="@string/portrayed"
             android:textSize="@dimen/textSize"
-            app:portrayedString="@{character}" />
+            />
 
     </LinearLayout>
 
