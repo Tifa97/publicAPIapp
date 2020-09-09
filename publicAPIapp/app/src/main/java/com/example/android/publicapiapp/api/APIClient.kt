@@ -10,6 +10,8 @@ import java.io.File
 import java.sql.Time
 import java.util.concurrent.TimeUnit
 
+//potrebno uvijek kad se koristi retrofit
+
 object APIClient{
     private fun provideHttpClient(): OkHttpClient{
         val interceptor = HttpLoggingInterceptor()

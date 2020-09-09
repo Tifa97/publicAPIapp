@@ -2,8 +2,9 @@ package com.example.android.publicapiapp.utils
 
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
-import com.example.android.publicapiapp.model.BreakingBadCharacterItem
-import org.w3c.dom.Text
+import com.example.android.publicapiapp.model.apiResponse.BreakingBadCharacterItem
+
+//Potrebno raditi iz activityja
 
 @BindingAdapter("nameString")
 fun TextView.setName(character: BreakingBadCharacterItem){

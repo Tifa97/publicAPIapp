@@ -5,9 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.android.publicapiapp.databinding.ActivityMainBinding
 import com.example.android.publicapiapp.databinding.ListItemCharacterBinding
-import com.example.android.publicapiapp.model.BreakingBadCharacterItem
+import com.example.android.publicapiapp.model.apiResponse.BreakingBadCharacterItem
 
 class CharactersAdapter : ListAdapter<BreakingBadCharacterItem, CharactersAdapter.ViewHolder>(CharacterDiffCallBack()) {
 

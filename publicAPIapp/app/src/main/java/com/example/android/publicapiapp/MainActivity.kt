@@ -2,24 +2,13 @@ package com.example.android.publicapiapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import androidx.databinding.adapters.ViewGroupBindingAdapter.setListener
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.android.publicapiapp.adapter.CharactersAdapter
 import com.example.android.publicapiapp.databinding.ActivityMainBinding
-import com.example.android.publicapiapp.model.BreakingBadCharacterItem
-import com.example.android.publicapiapp.model.BreakingBadCharacters
-import com.example.android.publicapiapp.module.BreakingBadModule
+import com.example.android.publicapiapp.model.apiResponse.BreakingBadCharacterItem
 import com.example.android.publicapiapp.viewModel.ExampleViewModel
-import kotlinx.android.synthetic.main.list_item_character.view.*
-import org.koin.android.ext.android.bind
-import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.ext.android.viewModel
-
-import org.koin.core.context.startKoin
-import java.util.*
-import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
 
@@ -41,11 +30,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun observeCharacters() {
-        viewModel.characters.observe(this, Observer {
-            for (c in it) {
-                Log.i("Character: ", c.name)
-            }
-            setupRecycler(it)
+        //uvijek radi ovako (npr. list ->)
+        viewModel.characters.observe(this, Observer {list ->
+            setupRecycler(list)
         } )
     }
 

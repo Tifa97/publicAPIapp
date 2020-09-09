@@ -8,6 +8,6 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val BreakingBadModule = module {
-    single { BreakingBadRepository(APIClient.authServices()) }
+    single { BreakingBadRepository() }
     viewModel { ExampleViewModel(get()) }
 }

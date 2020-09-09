@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="character"
-            type="com.example.android.publicapiapp.model.BreakingBadCharacterItem" />
+            type="com.example.android.publicapiapp.model.apiResponse.BreakingBadCharacterItem" />
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/defaultMargin"
         android:layout_marginStart="@dimen/defaultMargin"
+        android:layout_marginTop="@dimen/defaultMargin"
         android:layout_marginEnd="@dimen/defaultMargin">
 
 
@@ -23,8 +25,7 @@
             android:layout_height="wrap_content"
             android:text="@string/name_surname"
             android:textSize="@dimen/textSize"
-            app:nameString="@{character}"
-            />
+            app:nameString="@{character}" />
 
         <TextView
             android:id="@+id/nickname"
@@ -32,19 +33,17 @@
             android:layout_height="wrap_content"
             android:paddingStart="@dimen/defaultPadding"
             android:paddingEnd="@dimen/defaultPadding"
-            android:text="@string/name_surname"
+            android:text="@string/nickname"
             android:textSize="@dimen/textSize"
-            app:nicknameString="@{character}"
-            />
+            app:nicknameString="@{character}" />
 
         <TextView
             android:id="@+id/portrayed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/name_surname"
+            android:text="@string/portrayed"
             android:textSize="@dimen/textSize"
-            app:portrayedString="@{character}"
-            />
+            app:portrayedString="@{character}" />
 
     </LinearLayout>
 

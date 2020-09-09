@@ -23,6 +23,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        debug{
+
+        }
     }
 
     buildFeatures{
@@ -35,6 +38,7 @@ android {
     }
 }
 
+//Kad updateas, updateaj jedan po jedan
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
