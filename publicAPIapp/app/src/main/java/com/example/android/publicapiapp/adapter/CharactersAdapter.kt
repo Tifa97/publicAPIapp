@@ -6,9 +6,9 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android.publicapiapp.databinding.ListItemCharacterBinding
-import com.example.android.publicapiapp.model.apiResponse.BreakingBadCharacterItem
+import com.example.android.publicapiapp.model.CharacterObject
 
-class CharactersAdapter : ListAdapter<BreakingBadCharacterItem, CharactersAdapter.ViewHolder>(CharacterDiffCallBack()) {
+class CharactersAdapter : ListAdapter<CharacterObject, CharactersAdapter.ViewHolder>(CharacterDiffCallBack()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder.from(parent)
@@ -20,7 +20,7 @@ class CharactersAdapter : ListAdapter<BreakingBadCharacterItem, CharactersAdapte
 
 
     class ViewHolder private constructor(val binding: ListItemCharacterBinding) : RecyclerView.ViewHolder(binding.root){
-        fun bind(item: BreakingBadCharacterItem){
+        fun bind(item: CharacterObject){
             binding.character = item
             binding.executePendingBindings()
         }
@@ -35,17 +35,17 @@ class CharactersAdapter : ListAdapter<BreakingBadCharacterItem, CharactersAdapte
     }
 }
 
-class CharacterDiffCallBack : DiffUtil.ItemCallback<BreakingBadCharacterItem>(){
+class CharacterDiffCallBack : DiffUtil.ItemCallback<CharacterObject>(){
     override fun areItemsTheSame(
-        oldItem: BreakingBadCharacterItem,
-        newItem: BreakingBadCharacterItem
+        oldItem: CharacterObject,
+        newItem: CharacterObject
     ): Boolean {
         return  oldItem.char_id == newItem.char_id
     }
 
     override fun areContentsTheSame(
-        oldItem: BreakingBadCharacterItem,
-        newItem: BreakingBadCharacterItem
+        oldItem: CharacterObject,
+        newItem: CharacterObject
     ): Boolean {
         return oldItem == newItem
     }

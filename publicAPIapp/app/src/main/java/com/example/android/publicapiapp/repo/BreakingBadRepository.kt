@@ -1,7 +1,6 @@
 package com.example.android.publicapiapp.repo
 
 import com.example.android.publicapiapp.api.APIClient
-import com.example.android.publicapiapp.api.ApiInterface
 import com.example.android.publicapiapp.model.CharacterObject
 import com.example.android.publicapiapp.repo.mapper.ResponseMapper
 
@@ -10,7 +9,7 @@ import com.example.android.publicapiapp.repo.mapper.ResponseMapper
 class BreakingBadRepository(){
     val services by lazy { APIClient.authServices() }
 
-    suspend fun getCharacter(): List<CharacterObject>{
+    suspend fun getCharacters(): List<CharacterObject>{
         val result = services.getCharacters()
 
         var returnList = mutableListOf<CharacterObject>()

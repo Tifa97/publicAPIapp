@@ -6,7 +6,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.android.publicapiapp.adapter.CharactersAdapter
 import com.example.android.publicapiapp.databinding.ActivityMainBinding
-import com.example.android.publicapiapp.model.apiResponse.BreakingBadCharacterItem
+import com.example.android.publicapiapp.model.CharacterObject
 import com.example.android.publicapiapp.viewModel.ExampleViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         } )
     }
 
-    private fun setupRecycler(it: List<BreakingBadCharacterItem>?) {
+    private fun setupRecycler(it: List<CharacterObject>?) {
         val adapter = CharactersAdapter()
         binding.recycler.adapter = adapter
         adapter.submitList(it)

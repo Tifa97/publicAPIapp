@@ -8,7 +8,7 @@
 
         <variable
             name="character"
-            type="com.example.android.publicapiapp.model.apiResponse.BreakingBadCharacterItem" />
+            type="com.example.android.publicapiapp.model.CharacterObject" />
     </data>
 
     <LinearLayout
