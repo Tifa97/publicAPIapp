@@ -13,7 +13,6 @@ import retrofit2.Response
 
 //prepisano iz baseViewModela na ALU, je li tu iskljucivo radi lakseg testiranja ili postoji jos razloga?
 
-
 class ExampleViewModel(private val breakingBadRepository: BreakingBadRepository) : BaseViewModel() {
 
     private val _characters = MutableLiveData<List<CharacterObject>>()

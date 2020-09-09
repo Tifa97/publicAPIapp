@@ -4,4 +4,5 @@
     <string name="nickname">Nickname</string>
     <string name="portrayed">Portrayed</string>
     <string name="add_another">Add another</string>
+    <string name="add_list">Add list</string>
 </resources>

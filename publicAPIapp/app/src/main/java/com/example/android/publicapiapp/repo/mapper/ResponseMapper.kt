@@ -6,7 +6,7 @@ import com.example.android.publicapiapp.model.apiResponse.BreakingBadResponse
 class ResponseMapper {
     fun getCharacters(characters: BreakingBadResponse): MutableList<CharacterObject> {
         val list = mutableListOf<CharacterObject>()
-        characters.characters?.forEach {
+        characters.forEach {
             it?.let {
                 list.add(
                     CharacterObject(
