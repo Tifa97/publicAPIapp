@@ -15,8 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/name_surname"
-            android:textSize="@dimen/textSize"
-            />
+            android:textSize="@dimen/textSize" />
 
         <TextView
             android:id="@+id/txtNickname"
@@ -25,16 +24,14 @@
             android:paddingStart="@dimen/defaultPadding"
             android:paddingEnd="@dimen/defaultPadding"
             android:text="@string/nickname"
-            android:textSize="@dimen/textSize"
-            />
+            android:textSize="@dimen/textSize" />
 
         <TextView
             android:id="@+id/txtPortrayed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/portrayed"
-            android:textSize="@dimen/textSize"
-            />
+            android:textSize="@dimen/textSize" />
 
     </LinearLayout>
 
