@@ -2,8 +2,8 @@ package com.example.android.publicapiapp.model.apiResponse
 
 import com.google.gson.annotations.SerializedName
 
-//Response dobiven preko Json to Kotlin class plugina
-//Dodaju se anotacije i spremno je
+// Response dobiven preko Json to Kotlin class plugina
+// Dodaju se anotacije i spremno je
 
 class BreakingBadResponse : ArrayList<BreakingBadResponseItem>()
 
@@ -31,4 +31,3 @@ data class BreakingBadResponseItem(
     @SerializedName("status")
     val status: String
 )
-
