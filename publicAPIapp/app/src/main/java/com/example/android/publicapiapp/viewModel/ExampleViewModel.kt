@@ -14,6 +14,7 @@ class ExampleViewModel(private val breakingBadRepository: BreakingBadRepository)
 
     fun loadCharacter() {
         scope.launch {
+            //LiveData value uvijek setaj iz Maina
             withContext(Dispatchers.Main) {
                 _characters.value = breakingBadRepository.getCharacters()
             }
