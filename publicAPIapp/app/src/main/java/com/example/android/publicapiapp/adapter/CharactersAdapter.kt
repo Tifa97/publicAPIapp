@@ -16,10 +16,10 @@ class CharactersAdapter :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(getItem(position!!))
+        holder.bind(getItem(position))
     }
 
-    class ViewHolder private constructor(val binding: ListItemCharacterBinding) :
+    class ViewHolder private constructor(private val binding: ListItemCharacterBinding) :
         RecyclerView.ViewHolder(binding.root) {
         // ne koristi BindingUtilse
         fun bind(item: CharacterObject) {

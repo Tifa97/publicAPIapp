@@ -8,7 +8,6 @@ import com.example.android.publicapiapp.repo.mapper.ResponseMapper
 import io.mockk.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import org.junit.Assert.*
 import org.junit.Test
 
 /**
